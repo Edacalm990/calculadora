@@ -10,13 +10,15 @@ package Calculadora;
  */
 public class Marco extends javax.swing.JFrame {
 
+    // atributos privados para realizar las operaciones
     private double num1;
     private double num2;
-    String tmp;
-    String operador;
+    private String tmp;
+    private String operador;
 
     public Marco() {
         initComponents();
+        // inicializo los atributos
         num1 = -0;
         num2 = -0;
         tmp = "";
@@ -183,8 +185,12 @@ public class Marco extends javax.swing.JFrame {
         sumar.setText("+");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(new java.awt.Color(0, 0, 0));
 
+        tres.setBackground(new java.awt.Color(51, 51, 51));
         tres.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        tres.setForeground(new java.awt.Color(204, 204, 204));
         tres.setText("3");
         tres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,7 +198,9 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
+        uno.setBackground(new java.awt.Color(51, 51, 51));
         uno.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        uno.setForeground(new java.awt.Color(204, 204, 204));
         uno.setText("1");
         uno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,7 +208,9 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
+        dos.setBackground(new java.awt.Color(51, 51, 51));
         dos.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        dos.setForeground(new java.awt.Color(204, 204, 204));
         dos.setText("2");
         dos.setActionCommand("2");
         dos.addActionListener(new java.awt.event.ActionListener() {
@@ -209,7 +219,9 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
+        seis.setBackground(new java.awt.Color(51, 51, 51));
         seis.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        seis.setForeground(new java.awt.Color(204, 204, 204));
         seis.setText("6");
         seis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,7 +229,9 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
+        cuatro.setBackground(new java.awt.Color(51, 51, 51));
         cuatro.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        cuatro.setForeground(new java.awt.Color(204, 204, 204));
         cuatro.setText("4");
         cuatro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,7 +239,9 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
+        cinco.setBackground(new java.awt.Color(51, 51, 51));
         cinco.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        cinco.setForeground(new java.awt.Color(204, 204, 204));
         cinco.setText("5");
         cinco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,7 +249,9 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
+        ocho.setBackground(new java.awt.Color(51, 51, 51));
         ocho.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        ocho.setForeground(new java.awt.Color(204, 204, 204));
         ocho.setText("8");
         ocho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,7 +259,9 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
+        siete.setBackground(new java.awt.Color(51, 51, 51));
         siete.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        siete.setForeground(new java.awt.Color(204, 204, 204));
         siete.setText("7");
         siete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,7 +269,9 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
+        igual.setBackground(new java.awt.Color(51, 51, 51));
         igual.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        igual.setForeground(new java.awt.Color(204, 204, 204));
         igual.setText("=");
         igual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,7 +279,9 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
+        dividir.setBackground(new java.awt.Color(51, 51, 51));
         dividir.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        dividir.setForeground(new java.awt.Color(204, 204, 204));
         dividir.setText("/");
         dividir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,7 +289,9 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
+        borrar.setBackground(new java.awt.Color(51, 51, 51));
         borrar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        borrar.setForeground(new java.awt.Color(204, 204, 204));
         borrar.setText("C");
         borrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,7 +299,9 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
+        nueve.setBackground(new java.awt.Color(51, 51, 51));
         nueve.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        nueve.setForeground(new java.awt.Color(204, 204, 204));
         nueve.setText("9");
         nueve.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,11 +309,18 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
-        display.setColumns(15);
+        display.setEditable(false);
+        display.setBackground(new java.awt.Color(51, 51, 51));
+        display.setColumns(14);
+        display.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        display.setForeground(new java.awt.Color(255, 255, 255));
         display.setRows(2);
+        display.setMargin(new java.awt.Insets(6, 6, 6, 6));
         ventana.setViewportView(display);
 
+        multiplicar.setBackground(new java.awt.Color(51, 51, 51));
         multiplicar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        multiplicar.setForeground(new java.awt.Color(204, 204, 204));
         multiplicar.setText("x");
         multiplicar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -293,7 +328,9 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
+        restar.setBackground(new java.awt.Color(51, 51, 51));
         restar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        restar.setForeground(new java.awt.Color(204, 204, 204));
         restar.setText("-");
         restar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,7 +338,9 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
+        sum1.setBackground(new java.awt.Color(51, 51, 51));
         sum1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        sum1.setForeground(new java.awt.Color(204, 204, 204));
         sum1.setText("+");
         sum1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -309,7 +348,9 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
+        decimal.setBackground(new java.awt.Color(51, 51, 51));
         decimal.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        decimal.setForeground(new java.awt.Color(204, 204, 204));
         decimal.setText(".");
         decimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,7 +358,9 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
+        cero.setBackground(new java.awt.Color(51, 51, 51));
         cero.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        cero.setForeground(new java.awt.Color(204, 204, 204));
         cero.setText("0");
         cero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -413,27 +456,31 @@ public class Marco extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // el boton C pone todo a como estaba cuando se inicializo el componente
     private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
         display.setText("");
         tmp = "";
-        num1 = -0;
-        num2 = -0;
+        num1 = 0;
+        num2 = 0;
     }//GEN-LAST:event_borrarActionPerformed
 
     private void unoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unoActionPerformed
+        // todos los numero llaman al método  realizarAccionesNumero pasandole como parametro el numero
         realizarAccionesNumero("1");
     }//GEN-LAST:event_unoActionPerformed
 
     private void igualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_igualActionPerformed
-        relizarAcciones("=");
+        // todos los signos llaman al método realizar operaciones
+        relizarOperaciones("=");
+
     }//GEN-LAST:event_igualActionPerformed
 
     private void multiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplicarActionPerformed
-        relizarAcciones("x");
+        relizarOperaciones("x");
     }//GEN-LAST:event_multiplicarActionPerformed
 
     private void restarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restarActionPerformed
-        relizarAcciones("-");
+        relizarOperaciones("-");
     }//GEN-LAST:event_restarActionPerformed
 
     private void dosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dosActionPerformed
@@ -441,7 +488,7 @@ public class Marco extends javax.swing.JFrame {
     }//GEN-LAST:event_dosActionPerformed
 
     private void sum1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sum1ActionPerformed
-        relizarAcciones("+");
+        relizarOperaciones("+");
     }//GEN-LAST:event_sum1ActionPerformed
 
     private void tresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tresActionPerformed
@@ -449,7 +496,7 @@ public class Marco extends javax.swing.JFrame {
     }//GEN-LAST:event_tresActionPerformed
 
     private void decimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decimalActionPerformed
-
+        // solo permite poner un . si no tiene 
         if (!tmp.contains(".")) {
             display.setText(display.getText() + ".");
             tmp += ".";
@@ -485,44 +532,44 @@ public class Marco extends javax.swing.JFrame {
     }//GEN-LAST:event_ceroActionPerformed
 
     private void dividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dividirActionPerformed
-        relizarAcciones("/");
+        relizarOperaciones("/");
     }//GEN-LAST:event_dividirActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Marco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Marco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Marco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Marco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Marco().setVisible(true);
-            }
-        });
-    }
-
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(Marco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(Marco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(Marco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(Marco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new Marco().setVisible(true);
+//            }
+//        });
+//    }
+    // método privado que realiza las operaciones dependiendo del operador almacenado
     private double hacerOperacion() {
         return switch (operador) {
             case "+" ->
@@ -538,45 +585,59 @@ public class Marco extends javax.swing.JFrame {
         };
     }
 
-    private void relizarAcciones(String signo) {
-        if (num1 == -0) {
-            num1 = Double.parseDouble(tmp);
-        } else if (!tmp.isBlank()) {
-            num2 = Double.parseDouble(tmp);
-        }
-        tmp = "";
-        if (num1 != -0 && num2 == -0) {
+    // realiza las operaciones
+    private void relizarOperaciones(String signo) {
+        // convierte el String tmp en double dependiendo si es el numero uno o dos
+        // si falla por ejemplo poniendo un + repetidas veces sin haber introducido nada, 
+        // no te muestra nada y lo inicializa a 0
+        try {
+            if (num1 == 0) {
+                num1 = Double.parseDouble(tmp);
+            } else if (!tmp.isBlank()) {
+                num2 = Double.parseDouble(tmp);
+            }
+            tmp = "";
+            // si hay dos numeros hace las operaciones con el operador
+            if (num1 != 0 && num2 != 0) {
+                num1 = hacerOperacion();
+                num2 = 0;
+            }
+            // si es el signo igual no te muestra el = despues del numero, si es un operador te muestra el operador seleccionado
+            if (signo == "=") {
+                display.setText(comprobarDecimal());
+            } else {
+                display.setText(comprobarDecimal() + signo);
+            }
+            // cambia el operador para poder llevar a cabo operaciones concatenadas sin poner el =
             operador = signo;
-            if (signo != "=") {
-                display.setText(String.valueOf(num1) + signo);
-            } else {
-                display.setText(String.valueOf(num1));
-            }
-        } else if (num1 != -1 && num2 != -0) {
-            num1 = hacerOperacion();
-            num2 = -0;
-            if (signo != "=") {
-                display.setText(String.valueOf(num1) + signo);
-                operador = signo;
-            } else {
-                display.setText(String.valueOf(num1));
-                operador = "";
+        } catch (Exception e) {
+            display.setText("");
+            tmp = "";
+            num1 = 0;
+            num2 = 0;
+        }
 
-            }
-        }
     }
-    
-    private void realizarAccionesNumero(String numero){
-     if (operador != "=") {
-            display.setText(display.getText() +numero);
-            tmp += numero;
-        } else {
+
+    // si es decimal te muestra el decimal sino te muestra entero
+    private String comprobarDecimal() {
+        return (num1 - Math.floor(num1) == 0)
+                ? String.valueOf(Math.round(num1))
+                : String.valueOf(num1);
+    }
+
+    // 
+    private void realizarAccionesNumero(String numero) {
+        // si presionas un numero despues de haber presionado un igual te borra el numero 
+        // pero si presionas un simbolo despues de haber presionado el igual te deja el numero almacenado para que puedas concatenar otra operacion
+        if (operador == "=") {
             display.setText(numero);
-            tmp = numero;
+            num1 = 0;
             operador = "";
-            num1 = -0;
-            num2 = -0;
+        } else {
+            display.setText(display.getText() + numero);
         }
+        tmp += numero;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
