@@ -23,11 +23,11 @@ public class Marco extends javax.swing.JFrame {
     public Marco() {
         initComponents();
         // inicializo los atributos
-        num1 = -0;
-        num2 = -0;
+        num1 = -99999;
+        num2 = -99999;
         tmp = "";
-        String operador = "";
-        String historial="";
+        operador = "";
+        historial=" ";
     }
 
     /**
@@ -568,8 +568,9 @@ public class Marco extends javax.swing.JFrame {
     private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
         display.setText("");
         tmp = "";
-        num1 = 0;
-        num2 = 0;
+        num1 = -99999;
+        num2 = -99999;
+        historial="";
     }//GEN-LAST:event_borrarActionPerformed
 
     private void dividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dividirActionPerformed
@@ -632,32 +633,39 @@ public class Marco extends javax.swing.JFrame {
         // si falla por ejemplo poniendo un + repetidas veces sin haber introducido nada, 
         // no te muestra nada y lo inicializa a 0
         try {
-            if (num1 == 0) {
+            if (num1 == -99999) {
                 num1 = Double.parseDouble(tmp);
             } else if (!tmp.isBlank()) {
                 num2 = Double.parseDouble(tmp);
             }
             tmp = "";
             // si hay dos numeros hace las operaciones con el operador
-            if (num1 != 0 && num2 != 0) {
+            if (num1 != -99999 && num2 != -99999) {
                 num1 = hacerOperacion();
-                num2 = 0;
+                num2 = -99999;
             }
             // si es el signo igual no te muestra el = despues del numero, si es un operador te muestra el operador seleccionado
             if (signo == "=") {
                 display.setText(comprobarDecimal());
             } else {
+                // lo de ver el sgno es meramente informativo para saber cual has puesto y poder cambiarlo antes de hacer la operacion si quieres
                 display.setText(comprobarDecimal() + signo);
-                historial.substring(historial.length()-1);
+                String signos = "+-/x";
+                // esto comprueba si el ultimo caracter del historial es un signo, si lo es, lo elimina y lo remplaza por el nuevo signo
+                if(signos.contains(historial.substring(historial.length()-1))){
+                    historial=historial.substring(0, historial.length()-1);
+                } 
                 historial+=signo;
+                
+                
             }
             // cambia el operador para poder llevar a cabo operaciones concatenadas sin poner el =
             operador = signo;
         } catch (Exception e) {
             display.setText("");
             tmp = "";
-            num1 = 0;
-            num2 = 0;
+            num1 = -99999;
+            num2 = -99999;
         }
 
     }
@@ -671,24 +679,28 @@ public class Marco extends javax.swing.JFrame {
 
     // 
     private void realizarAccionesNumero(String numero) {
-        // si presionas un numero despues de haber presionado un igual te borra el numero 
+        // si presionas un numero despues de haber presionado un igual te borra todo lo almacenado para que reaces una nueva
         // pero si presionas un simbolo despues de haber presionado el igual te deja el numero almacenado para que puedas concatenar otra operacion
-       final String regex = "\\.";
+       // expresion regular para comprobar si hay puntos
+        final String regex = "\\.";
        int puntos=-1;
         final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
         final Matcher matcher = pattern.matcher(tmp);
         while (matcher.find()) {
             puntos=matcher.groupCount();
         }
+        // si hay puntos no te deja añadir más
         if ((numero=="." && puntos!=0) || numero!=".") {
+             if (operador == "=") {
+                num1 = -99999;
+                operador = "";
+                historial="";
+            }
             historial+=numero;
             his.setText(historial);
             tmp += numero;
             display.setText(tmp);
-            if (operador == "=") {
-                num1 = 0;
-                operador = "";
-            }
+           
         } 
 
     }
