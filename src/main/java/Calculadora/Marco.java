@@ -4,6 +4,9 @@
  */
 package Calculadora;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  *
  * @author venganzaalchocolate
@@ -15,6 +18,7 @@ public class Marco extends javax.swing.JFrame {
     private double num2;
     private String tmp;
     private String operador;
+    private String historial;
 
     public Marco() {
         initComponents();
@@ -23,6 +27,7 @@ public class Marco extends javax.swing.JFrame {
         num2 = -0;
         tmp = "";
         String operador = "";
+        String historial="";
     }
 
     /**
@@ -59,6 +64,8 @@ public class Marco extends javax.swing.JFrame {
         menu4 = new java.awt.Menu();
         textField1 = new java.awt.TextField();
         sumar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         tres = new javax.swing.JButton();
         uno = new javax.swing.JButton();
         dos = new javax.swing.JButton();
@@ -78,6 +85,8 @@ public class Marco extends javax.swing.JFrame {
         sum1 = new javax.swing.JButton();
         decimal = new javax.swing.JButton();
         cero = new javax.swing.JButton();
+        ventana1 = new javax.swing.JScrollPane();
+        his = new javax.swing.JTextArea();
 
         jButton8.setText("jButton1");
 
@@ -184,11 +193,33 @@ public class Marco extends javax.swing.JFrame {
         sumar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         sumar.setText("+");
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
         setForeground(new java.awt.Color(0, 0, 0));
 
-        tres.setBackground(new java.awt.Color(51, 51, 51));
+        tres.setBackground(new java.awt.Color(153, 0, 255));
         tres.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         tres.setForeground(new java.awt.Color(204, 204, 204));
         tres.setText("3");
@@ -198,7 +229,7 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
-        uno.setBackground(new java.awt.Color(51, 51, 51));
+        uno.setBackground(new java.awt.Color(153, 153, 255));
         uno.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         uno.setForeground(new java.awt.Color(204, 204, 204));
         uno.setText("1");
@@ -208,18 +239,17 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
-        dos.setBackground(new java.awt.Color(51, 51, 51));
+        dos.setBackground(new java.awt.Color(0, 102, 255));
         dos.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         dos.setForeground(new java.awt.Color(204, 204, 204));
         dos.setText("2");
-        dos.setActionCommand("2");
         dos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dosActionPerformed(evt);
             }
         });
 
-        seis.setBackground(new java.awt.Color(51, 51, 51));
+        seis.setBackground(new java.awt.Color(255, 153, 0));
         seis.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         seis.setForeground(new java.awt.Color(204, 204, 204));
         seis.setText("6");
@@ -229,7 +259,7 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
-        cuatro.setBackground(new java.awt.Color(51, 51, 51));
+        cuatro.setBackground(new java.awt.Color(255, 0, 153));
         cuatro.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         cuatro.setForeground(new java.awt.Color(204, 204, 204));
         cuatro.setText("4");
@@ -239,7 +269,7 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
-        cinco.setBackground(new java.awt.Color(51, 51, 51));
+        cinco.setBackground(new java.awt.Color(255, 0, 51));
         cinco.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         cinco.setForeground(new java.awt.Color(204, 204, 204));
         cinco.setText("5");
@@ -249,7 +279,7 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
-        ocho.setBackground(new java.awt.Color(51, 51, 51));
+        ocho.setBackground(new java.awt.Color(102, 204, 0));
         ocho.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         ocho.setForeground(new java.awt.Color(204, 204, 204));
         ocho.setText("8");
@@ -259,7 +289,7 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
-        siete.setBackground(new java.awt.Color(51, 51, 51));
+        siete.setBackground(new java.awt.Color(255, 255, 0));
         siete.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         siete.setForeground(new java.awt.Color(204, 204, 204));
         siete.setText("7");
@@ -269,7 +299,7 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
-        igual.setBackground(new java.awt.Color(51, 51, 51));
+        igual.setBackground(new java.awt.Color(0, 153, 153));
         igual.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         igual.setForeground(new java.awt.Color(204, 204, 204));
         igual.setText("=");
@@ -279,7 +309,7 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
-        dividir.setBackground(new java.awt.Color(51, 51, 51));
+        dividir.setBackground(new java.awt.Color(0, 153, 153));
         dividir.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         dividir.setForeground(new java.awt.Color(204, 204, 204));
         dividir.setText("/");
@@ -289,7 +319,7 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
-        borrar.setBackground(new java.awt.Color(51, 51, 51));
+        borrar.setBackground(new java.awt.Color(0, 153, 153));
         borrar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         borrar.setForeground(new java.awt.Color(204, 204, 204));
         borrar.setText("C");
@@ -299,7 +329,7 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
-        nueve.setBackground(new java.awt.Color(51, 51, 51));
+        nueve.setBackground(new java.awt.Color(0, 102, 0));
         nueve.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         nueve.setForeground(new java.awt.Color(204, 204, 204));
         nueve.setText("9");
@@ -311,14 +341,15 @@ public class Marco extends javax.swing.JFrame {
 
         display.setEditable(false);
         display.setBackground(new java.awt.Color(51, 51, 51));
-        display.setColumns(14);
+        display.setColumns(12);
         display.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         display.setForeground(new java.awt.Color(255, 255, 255));
-        display.setRows(2);
+        display.setRows(1);
+        display.setTabSize(6);
         display.setMargin(new java.awt.Insets(6, 6, 6, 6));
         ventana.setViewportView(display);
 
-        multiplicar.setBackground(new java.awt.Color(51, 51, 51));
+        multiplicar.setBackground(new java.awt.Color(0, 153, 153));
         multiplicar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         multiplicar.setForeground(new java.awt.Color(204, 204, 204));
         multiplicar.setText("x");
@@ -328,7 +359,7 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
-        restar.setBackground(new java.awt.Color(51, 51, 51));
+        restar.setBackground(new java.awt.Color(0, 153, 153));
         restar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         restar.setForeground(new java.awt.Color(204, 204, 204));
         restar.setText("-");
@@ -338,7 +369,7 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
-        sum1.setBackground(new java.awt.Color(51, 51, 51));
+        sum1.setBackground(new java.awt.Color(0, 153, 153));
         sum1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         sum1.setForeground(new java.awt.Color(204, 204, 204));
         sum1.setText("+");
@@ -348,7 +379,7 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
-        decimal.setBackground(new java.awt.Color(51, 51, 51));
+        decimal.setBackground(new java.awt.Color(0, 153, 153));
         decimal.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         decimal.setForeground(new java.awt.Color(204, 204, 204));
         decimal.setText(".");
@@ -358,7 +389,7 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
-        cero.setBackground(new java.awt.Color(51, 51, 51));
+        cero.setBackground(new java.awt.Color(0, 153, 153));
         cero.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         cero.setForeground(new java.awt.Color(204, 204, 204));
         cero.setText("0");
@@ -368,6 +399,17 @@ public class Marco extends javax.swing.JFrame {
             }
         });
 
+        his.setEditable(false);
+        his.setBackground(new java.awt.Color(153, 153, 153));
+        his.setColumns(12);
+        his.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        his.setForeground(new java.awt.Color(255, 255, 255));
+        his.setLineWrap(true);
+        his.setRows(1);
+        his.setTabSize(6);
+        his.setMargin(new java.awt.Insets(6, 6, 6, 6));
+        ventana1.setViewportView(his);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -376,7 +418,7 @@ public class Marco extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(ventana)
+                        .addComponent(ventana, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -415,13 +457,16 @@ public class Marco extends javax.swing.JFrame {
                                 .addComponent(seis, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(multiplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(ventana1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addComponent(ventana1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(borrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ventana, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -450,70 +495,20 @@ public class Marco extends javax.swing.JFrame {
                         .addComponent(decimal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cero, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(sum1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    // el boton C pone todo a como estaba cuando se inicializo el componente
-    private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
-        display.setText("");
-        tmp = "";
-        num1 = 0;
-        num2 = 0;
-    }//GEN-LAST:event_borrarActionPerformed
-
-    private void unoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unoActionPerformed
-        // todos los numero llaman al método  realizarAccionesNumero pasandole como parametro el numero
-        realizarAccionesNumero("1");
-    }//GEN-LAST:event_unoActionPerformed
-
     private void igualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_igualActionPerformed
         // todos los signos llaman al método realizar operaciones
         relizarOperaciones("=");
-
     }//GEN-LAST:event_igualActionPerformed
 
-    private void multiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplicarActionPerformed
-        relizarOperaciones("x");
-    }//GEN-LAST:event_multiplicarActionPerformed
-
-    private void restarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restarActionPerformed
-        relizarOperaciones("-");
-    }//GEN-LAST:event_restarActionPerformed
-
-    private void dosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dosActionPerformed
-        realizarAccionesNumero("2");
-    }//GEN-LAST:event_dosActionPerformed
-
-    private void sum1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sum1ActionPerformed
-        relizarOperaciones("+");
-    }//GEN-LAST:event_sum1ActionPerformed
-
-    private void tresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tresActionPerformed
-        realizarAccionesNumero("3");
-    }//GEN-LAST:event_tresActionPerformed
-
-    private void decimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decimalActionPerformed
-        // solo permite poner un . si no tiene 
-        if (!tmp.contains(".")) {
-            display.setText(display.getText() + ".");
-            tmp += ".";
-        }
-    }//GEN-LAST:event_decimalActionPerformed
-
-    private void cuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuatroActionPerformed
-        realizarAccionesNumero("4");
-    }//GEN-LAST:event_cuatroActionPerformed
-
-    private void cincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cincoActionPerformed
-        realizarAccionesNumero("5");
-    }//GEN-LAST:event_cincoActionPerformed
-
-    private void seisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seisActionPerformed
-        realizarAccionesNumero("6");
-    }//GEN-LAST:event_seisActionPerformed
+    private void ceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ceroActionPerformed
+        realizarAccionesNumero("0");
+    }//GEN-LAST:event_ceroActionPerformed
 
     private void sieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sieteActionPerformed
         realizarAccionesNumero("7");
@@ -523,13 +518,59 @@ public class Marco extends javax.swing.JFrame {
         realizarAccionesNumero("8");
     }//GEN-LAST:event_ochoActionPerformed
 
+    private void cincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cincoActionPerformed
+        realizarAccionesNumero("5");
+    }//GEN-LAST:event_cincoActionPerformed
+
+    private void cuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuatroActionPerformed
+        realizarAccionesNumero("4");
+    }//GEN-LAST:event_cuatroActionPerformed
+
+    private void seisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seisActionPerformed
+        realizarAccionesNumero("6");
+    }//GEN-LAST:event_seisActionPerformed
+
+    private void dosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dosActionPerformed
+        realizarAccionesNumero("2");
+    }//GEN-LAST:event_dosActionPerformed
+
+    private void unoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unoActionPerformed
+        // todos los numero llaman al método  realizarAccionesNumero pasandole como parametro el numero
+        realizarAccionesNumero("1");
+    }//GEN-LAST:event_unoActionPerformed
+
+    private void tresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tresActionPerformed
+        realizarAccionesNumero("3");
+    }//GEN-LAST:event_tresActionPerformed
+
+    private void decimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decimalActionPerformed
+        // solo permite poner un . si no tiene
+        realizarAccionesNumero(".");
+    }//GEN-LAST:event_decimalActionPerformed
+
+    private void sum1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sum1ActionPerformed
+        relizarOperaciones("+");
+    }//GEN-LAST:event_sum1ActionPerformed
+
+    private void restarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restarActionPerformed
+        relizarOperaciones("-");
+    }//GEN-LAST:event_restarActionPerformed
+
+    private void multiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplicarActionPerformed
+        relizarOperaciones("x");
+    }//GEN-LAST:event_multiplicarActionPerformed
+
     private void nueveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nueveActionPerformed
         realizarAccionesNumero("9");
     }//GEN-LAST:event_nueveActionPerformed
 
-    private void ceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ceroActionPerformed
-        realizarAccionesNumero("0");
-    }//GEN-LAST:event_ceroActionPerformed
+    // el boton C pone todo a como estaba cuando se inicializo el componente
+    private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
+        display.setText("");
+        tmp = "";
+        num1 = 0;
+        num2 = 0;
+    }//GEN-LAST:event_borrarActionPerformed
 
     private void dividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dividirActionPerformed
         relizarOperaciones("/");
@@ -607,6 +648,8 @@ public class Marco extends javax.swing.JFrame {
                 display.setText(comprobarDecimal());
             } else {
                 display.setText(comprobarDecimal() + signo);
+                historial.substring(historial.length()-1);
+                historial+=signo;
             }
             // cambia el operador para poder llevar a cabo operaciones concatenadas sin poner el =
             operador = signo;
@@ -630,14 +673,24 @@ public class Marco extends javax.swing.JFrame {
     private void realizarAccionesNumero(String numero) {
         // si presionas un numero despues de haber presionado un igual te borra el numero 
         // pero si presionas un simbolo despues de haber presionado el igual te deja el numero almacenado para que puedas concatenar otra operacion
-        if (operador == "=") {
-            display.setText(numero);
-            num1 = 0;
-            operador = "";
-        } else {
-            display.setText(display.getText() + numero);
+       final String regex = "\\.";
+       int puntos=-1;
+        final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
+        final Matcher matcher = pattern.matcher(tmp);
+        while (matcher.find()) {
+            puntos=matcher.groupCount();
         }
-        tmp += numero;
+        if ((numero=="." && puntos!=0) || numero!=".") {
+            historial+=numero;
+            his.setText(historial);
+            tmp += numero;
+            display.setText(tmp);
+            if (operador == "=") {
+                num1 = 0;
+                operador = "";
+            }
+        } 
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -649,6 +702,7 @@ public class Marco extends javax.swing.JFrame {
     private javax.swing.JTextArea display;
     private javax.swing.JButton dividir;
     private javax.swing.JButton dos;
+    private javax.swing.JTextArea his;
     private javax.swing.JButton igual;
     private javax.swing.JButton jButton8;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
@@ -663,6 +717,8 @@ public class Marco extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JSplitPane jSplitPane1;
@@ -685,5 +741,6 @@ public class Marco extends javax.swing.JFrame {
     private javax.swing.JButton tres;
     private javax.swing.JButton uno;
     private javax.swing.JScrollPane ventana;
+    private javax.swing.JScrollPane ventana1;
     // End of variables declaration//GEN-END:variables
 }
